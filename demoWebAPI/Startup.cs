@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 using Swashbuckle.AspNetCore.Swagger;
 
 namespace demoWebAPI
@@ -52,12 +46,12 @@ namespace demoWebAPI
             app.UseDeveloperExceptionPage();
             app.UseSwagger(c =>
             {
-                c.RouteTemplate = "admin/{documentName}/swagger.json";
+                c.RouteTemplate = "api/{documentName}/swagger.json";
             });
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/admin/v1/swagger.json", "My API V1");
-                c.RoutePrefix = "admin/swagger";
+                c.SwaggerEndpoint("/api/v1/swagger.json", "My API V1");
+                c.RoutePrefix = "api/swagger";
             });
 
             app.UseHttpsRedirection();
